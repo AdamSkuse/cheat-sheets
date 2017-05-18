@@ -75,7 +75,7 @@ gulp.task('styles', function() {
 **8.** create:
 *app/styles/base*  <-- our *_global.css* goes in here
 
-*app/styles/modules** <-- css modules (e.g. *_footer.css*) go in here
+*app/styles/modules* <-- css modules (e.g. *_footer.css*) go in here
 
 **9.** import css modules in *_global.css* e.g.
 ```
@@ -165,7 +165,9 @@ gulp.task('styles', function() {
 });
 ```
 
+
 ##Post-css mixins
+
 For writing succinct media queries for mobile responsiveness.
 In css, start with styles for baseline smallest screen size, then add mixin mediaqueries for progressively large screens.
 
