@@ -257,6 +257,7 @@ this.greet = function() {
 var john = new Person(“John Doe”, “blue”)
 john.greet();
 ```
+*N.B. The above is the ECMA5 approach to creating 'classes'. Later, after installing Babel, we can use the ECMA6 class constructor (see section on Babel).*
 
 As JS doesn’t have a native ‘require’ function, we can use **Webpack**. This will allow us to store class constructors etc in separate .js files to our main code i.e. make it modular.
 
@@ -333,3 +334,67 @@ gulp.task(‘scriptsRefresh’, [‘scripts’], function() {
 ```
 
 Now, webpack will compile a js file for the browser to use from our main file and modules into App.js in the temp folder; and browserSync will automatically update the browser when any js files are edited. If there are any errors it will throw them up without causing browsersync to end.
+
+## Babel
+Allows us to write ES6 code, which Babel then converts to ES5 code to ensure browser compatibility.
+
+**1.** `npm install babel-core babel-loader babel-preset-es2015 --save-dev`
+
+**2.** In *webpack.config.js* add a module so the whole thing reads as follows:
+```
+module.exports = {
+	entry: “./app/assets/scripts/App.js”,
+	output: {
+		path: “./app/temp/scripts”,
+		filename: “App.js”
+		},
+		modules: {
+			loaders: [
+				{
+					loader: ‘babel’,
+					query: {
+						presets: [‘es2015’]
+					},
+					test: /\.js$/,
+					exclude: /node_modules/
+					}
+				]
+			}
+}
+```
+this means Webpack will run the code thru Babel before creating the dist version of App.js.
+
+#### ECMA6 refactor - classes
+We can now update our classes to use ECMA6 as follows:
+
+```
+class Person {
+	constructor(fullName, favColor) {
+		this.name = fullName;
+		this.favoriteColor = favColor;
+	}
+
+	greet() {
+	console.log(“Hi, my name is “ + this.name + “ and my fav color 	is “ + this.favoriteColor “ .”;
+	}
+}
+
+module.exports = Person;
+```
+
+#### ECMA6 refactor - imports / exports
+Additionally, as ECMA6 supports importing from external .js files, in *App.js* we can replace
+
+`var Person = require(‘./modules/Person’);`
+
+with
+
+`import Person from ‘./modules/Person’;`
+
+and in *Person.js* replace
+
+`module.exports = Person;`
+
+with
+
+`export default Person;`
