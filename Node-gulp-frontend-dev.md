@@ -220,3 +220,116 @@ be sure to import this file in *styles.css*
 
 }
 ```
+
+## Responsive images
+For dealing with two issues:
+1. Art direction (e.g. using differently-cropped images depending on screen size.
+2. File size / resolution (so only images with resolution/size appropriate to the user's screen are downloaded)
+
+**1. "Art direction"**
+Use the `<picture>` tag with media attribute:
+```
+<picture>
+	<source srcset=“images/dog-crop-large.jpg” media=“(min-width: 1200px)”>
+	<source srcset=“images/dog-crop-medium.jpg” media=“(min-width: 760px)”>
+	<img src=“images/dog-crop-small.jpg” alt=“Puppy in the sand.”>
+</picture>
+```
+
+**2. Image resolution / file size**
+Use `srcset`. The number after each image is the width of the image itself. The browser/device uses this to determine which is the most appropriate to download, and doesn’t download the alternatives.
+```
+<img srcset=“images/dog-res-small.jpg 570w, images/dog-res-medium.jpg 1200w, images/dog-res-large.jpg 1920w” alt=“Puppy in the sand”>
+```
+
+## Object-oriented Javascript and Webpack
+
+We can create "classes" as follows:
+```
+function Person(fullName, favColor) {
+this.name = fullName;
+this.favoriteColor = favColor;
+this.greet = function() {
+	console.log(“Hi, my name is “ + this.name + “ and my fav color is “ + this.favoriteColor “ .”;
+	}
+}
+
+var john = new Person(“John Doe”, “blue”)
+john.greet();
+```
+
+As JS doesn’t have a native ‘require’ function, we can use **Webpack**. This will allow us to store class constructors etc in separate .js files to our main code i.e. make it modular.
+
+**1.** Create:
+*app/assets/scripts/App.js*
+*app/assets/scripts/modules/*
+
+Modules (e.g. *Person.js*) will go in the *modules/* folder. We then require them at the top of *App.js* e.g.
+`var Person = require(‘./modules/Person’);`
+
+Webpack will compile all the js modules into a single file that the browser can then read.
+
+**2.** if not already installed globally, do so now with `npm install webpack -g`
+
+**3.** In the project root folder (i.e. alongside *package.json*) create *webpack.config.js*, then add the following to it:
+```
+module.exports = {
+	entry: “./app/assets/scripts/App.js”,
+	output: {
+		path: “./app/temp/scripts”,
+		filename: “App.js”
+		}
+}
+```
+
+**4.** Update path to script file in *index.html* to point to *assets/temp/scripts/App.js*
+
+N.B. each js module (e.g. Person.js) will need an export line at the end, so that Webpack knows what to do with it. e.g.
+`module.exports = Person;`
+
+**5.** Webpack can also require third-party modules such as jquery. If using jquery in project, first install it with `npm install jquery --save`. Then, in each module that uses jquery, at the top put `var $ = require('jquery');
+
+#### Adding Webpack to Gulp workflow
+This will set browsersync to automatically update if a .js file is edited:
+
+**1.** `npm install webpack --save-dev`
+
+**2.** create *gulp/tasks/scripts.js*
+
+**3.** in *gulpfile.js* add `require(‘./gulp/tasks/scripts’);`
+
+**4.** add following to *gulp/tasks/scripts.js*
+
+```
+var gulp = require(‘gulp’),
+webpack = require(‘webpack’);
+
+gulp.task(‘scripts’, function(callback) {
+	webpack(require(‘../../webpack.config.js’), function(err, stats) {
+		if (err) {
+			console.log(err.toString());
+		}
+		console.log(stats.toString());
+		callback();
+
+	});
+});
+```
+
+**5.** In *watch.js*, after 'css' and 'watch' tasks, add:
+
+```
+watch(‘./app/assets/scripts/**/*.js), function() {
+	gulp.start(‘scriptsRefresh’);
+})
+```
+
+and after 'cssInject' task add:
+
+```
+gulp.task(‘scriptsRefresh’, [‘scripts’], function() {
+	browserSync.reload();
+)};
+```
+
+Now, webpack will compile a js file for the browser to use from our main file and modules into App.js in the temp folder; and browserSync will automatically update the browser when any js files are edited. If there are any errors it will throw them up without causing browsersync to end.
