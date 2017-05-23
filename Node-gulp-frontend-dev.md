@@ -3,12 +3,27 @@
 
 N.B. this cheat sheet skips the use of modernizr and measures for dealing with SVG files.
 
-## Contents
+## Document contents
 
 [Basics](#basics)
 
 [Initializing a new project](#initializing-a-new-project)
 
+[Browsersync](#browsersync)
+
+[Post-css mixins](#post-css-mixins)
+
+[Responsive images](#responsive-images)
+
+[Object-oriented Javascript and Webpack](#object-oriented-javascript-and-webpack)
+
+[Babel](#babel)
+
+[Lazy loading images](#lazy-loading-images)
+
+[Prepping files to go live](#prepping-files-to-go-live)
+
+[Example project folder structure](#example-project-folder-structure)
 
 ## Basics
 
