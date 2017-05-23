@@ -1,7 +1,12 @@
 # Node Gulp Frontend Dev cheat sheet
 ### Based on the excellent Git A Web Developer Job course on Udemy by Brad Schiff
 
-N.B. this cheat sheet skips the use of modernizr and measures for dealing with SVG files.
+N.B. this cheat sheet skips the use of modernizr and measures for dealing with SVG files. It also skips info on Git / Github, as I was already familiar with these at the time of doing the course.
+
+You can read my thoughts on the course itself at 
+http://adamskuse.com/blog/coding/2017/05/22/thoughts-on-git-a-web-developer-job-udemy-course-by-brad-schiff/
+
+
 
 ## Document contents
 
