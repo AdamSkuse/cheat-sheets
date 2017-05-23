@@ -3,6 +3,12 @@
 
 N.B. this cheat sheet skips the use of modernizr and measures for dealing with SVG files.
 
+## Contents
+
+[Basics](#basics)
+
+[Initializing a new project](#initializing-a-new-project)
+
 
 ## Basics
 
