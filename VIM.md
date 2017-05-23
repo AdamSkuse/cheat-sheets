@@ -4,6 +4,7 @@ NB These are tips I've curated from various sources over a period of time that I
 ## Comprehensive cheat sheets:
 
 https://vim.rtorr.com/
+
 https://www.cs.swarthmore.edu/help/vim/searching.html
 
 
