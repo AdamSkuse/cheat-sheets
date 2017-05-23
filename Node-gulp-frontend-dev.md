@@ -3,6 +3,8 @@
 
 N.B. this cheat sheet skips the use of modernizr and measures for dealing with SVG files. It also skips info on Git / Github, as I was already familiar with these at the time of doing the course.
 
+Also, be careful if copying-and-pasting code snippets from this doc, as many of the quote marks are encoded as 'curly', so will throw errors if not fixed.
+
 You can read my thoughts on the course itself at 
 http://adamskuse.com/blog/coding/2017/05/22/thoughts-on-git-a-web-developer-job-udemy-course-by-brad-schiff/
 
@@ -139,8 +141,15 @@ The above will be compiled by post-css into the final styles.css as:
 This will allow us to view changes in browser without having to hit reload.
 
 **1.** `npm install browser-sync --save-dev`
+and
 
-**2.** in *gulpfile.js* add `browserSync = require('browser-sync’).create();`
+`npm install gulp-watch --save-dev`
+
+**2.** in *gulpfile.js* add 
+```
+watch = require('gulp-watch')
+browserSync = require('browser-sync').create();
+```
 
 and edit watch task to become:
 ```
@@ -292,6 +301,7 @@ As JS doesn’t have a native ‘require’ function, we can use **Webpack**. Th
 
 **1.** Create:
 *app/assets/scripts/App.js*
+
 *app/assets/scripts/modules/*
 
 Modules (e.g. *Person.js*) will go in the *modules/* folder. We then require them at the top of *App.js* e.g.
