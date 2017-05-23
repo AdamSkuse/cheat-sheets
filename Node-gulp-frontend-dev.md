@@ -96,9 +96,9 @@ to avoid nested css compiling as nested selectors when using BEM, use ampersands
 		position: absolute;
 	}
 }
-
+```
 The above will be compiled by post-css into the final styles.css as:
-
+```
 .large-hero {
 	position: relative;
 }
