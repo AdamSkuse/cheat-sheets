@@ -86,7 +86,7 @@ gulp.task('styles', function() {
 @import “modules/_footer.css”;
 ```
 
-**not on nested css
+**note on nested css:**
 to avoid nested css compiling as nested selectors when using BEM, use ampersands as follows:
 ```
 .large-hero {
