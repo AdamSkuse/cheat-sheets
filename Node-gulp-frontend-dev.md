@@ -8,6 +8,8 @@ Also, be careful if copying-and-pasting code snippets from this doc, as many of 
 You can read my thoughts on the course itself at 
 http://adamskuse.com/blog/coding/2017/05/22/thoughts-on-git-a-web-developer-job-udemy-course-by-brad-schiff/
 
+5/24/17
+I will be adding extra sections/material/resources to this sheet that are not based on Brad's course as I develop my own workflow.
 
 
 ## Document contents
@@ -29,6 +31,8 @@ http://adamskuse.com/blog/coding/2017/05/22/thoughts-on-git-a-web-developer-job-
 [Lazy loading images](#lazy-loading-images)
 
 [Prepping files to go live](#prepping-files-to-go-live)
+
+[Useful resources](#useful-resources)
 
 [Example project folder structure](#example-project-folder-structure)
 
@@ -470,9 +474,10 @@ module.exports = {
 }
 ```
 
-**4.** in `<head>` of *index.html* add `<script src=“/temp/scripts/Vendor.js”></script>`
+**4.** in head of *index.html* add `<script src=“/temp/scripts/Vendor.js”></script>`
 
 **5.** To set an image to lazyload, add the class 'lazy-load' and change 'src'/'srcset' to 'data-src'/'data-srcset'. e.g.:
+
 `<img class=“lazyload” data-srcset=“image1.jpg 160w, image2.jpg 320w”>`
 
 **6.** For background images, add 'lazyload' class to the html element. Then in the css assign the background image in a 'lazyloaded' class. This class will be added to the html element when the window scrolls close to the element. e.g.
@@ -699,6 +704,12 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function(){
 ```
 gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages', 'usemin']);
 ```
+## Useful resources
+
+https://www.sitepoint.com/anatomy-of-a-modern-javascript-application
+
+https://www.sitepoint.com/introduction-gulp-js/
+
 
 ## Example project folder structure
 ```
