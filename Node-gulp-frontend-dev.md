@@ -589,7 +589,7 @@ gulp.task('usemin', ['deleteDistFolder'], function() {
   return gulp.src("./app/index.html")
   .pipe(usemin())
   .pipe(gulp.dest("./dist"));
-}
+});
 
 gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin']);
 ```
