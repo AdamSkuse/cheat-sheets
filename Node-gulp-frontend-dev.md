@@ -596,12 +596,12 @@ gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin']);
 
 **3.** So that the dist version of *index.html* points to the correct, dynamically-named versions of the CSS and JS files, wrap the references in comments as follows:
 ```
-<!-- build:css /assets/styles/styles.css -->
+<!-- build:css assets/styles/styles.css -->
 <link rel="stylesheet" href="temp/styles/styles.css">
 <!-- endbuild -->
 ```
 ```
-<!-- build:js /assets/scripts/App.js -->
+<!-- build:js assets/scripts/App.js -->
 <script src="assets/scripts/App.js"></script>
 <!-- endbuild -->
 ```
