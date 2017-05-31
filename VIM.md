@@ -7,6 +7,11 @@ https://vim.rtorr.com/
 
 https://www.cs.swarthmore.edu/help/vim/searching.html
 
+## Navigation
+
+`*` search for current word fwd (`#` bckwd)
+
+Use backtick and double-backtick to jump between last two parts of file being edited.
 
 ## Copying, cutting, pasting
 
@@ -31,6 +36,14 @@ https://www.cs.swarthmore.edu/help/vim/searching.html
 `yiw` – yank the current word (excluding surrounding whitespace)
 `yaw` – yank the current word (including leading or trailing whitespace)
 
+#### Selecting within/without quotes, braces etc
+
+In visual mode, `i"` selects text inside double-quotes, `a"` selects that text and the double-quotes too. Similarly we can use `i'` and `a'`, `i[` and `a[`.
+
+You can also swap out the "v" (visually select) for "d" (delete) or "y" (yank) or "c" (change).
+
+You can also swap out the "i" (inside) for "t" (up to) or "a" (around).
+
 ## Block commenting
 First, move the cursor to the first char of the first line in block code you want to comment, then type `CTRL + V`.
 
@@ -39,6 +52,7 @@ Vim will go into VISUAL BLOCK mode. Use `j` to move the cursor down until you re
 Now vim goes to INSERT mode and the cursor is at the first char of the first line. Finally, type `#` then `ESC` and the code block is now commented.
 
 To decomment, do the same things but instead of typing `Shift + I`, you just type `x` to remove all '#' after highlight them in VISUAL BLOCK mode.
+
 
 
 ## Find and replace
