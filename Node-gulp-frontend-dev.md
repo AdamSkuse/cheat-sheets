@@ -53,7 +53,7 @@ A JS-based build system for automating dev tasks using gulp plugins.
 
 **2.** Run `npm install normalize.css --save`. This installs normalize.css, a css reset.
 
-**3.** If jQuery required, `npm install jquery --save-dev`
+**3.** If jQuery required, `npm install jquery --save`
 
 **4.** Install gulp. `npm install gulp --save-dev`
 
