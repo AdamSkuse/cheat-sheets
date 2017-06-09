@@ -24,4 +24,4 @@ git push origin master
 
 **10.** Then the _Create pull request_ button.
 
-**11.** Add a comment if you wish and then click on the _Create pull request button to confirm the request which passes the changes to the original owner to review and maybe accept.
+**11.** Add a comment if you wish and then click on the _Create pull request_ button to confirm the request which passes the changes to the original owner to review and maybe accept.
