@@ -60,18 +60,18 @@ A JS-based build system for automating dev tasks using gulp plugins.
 **5.** Create *gulpfile.js* in project root. Add placeholder tasks to the file:
 
 ```
-var gulp = require(‘gulp’);
+var gulp = require('gulp');
 
 	gulp.task('default', function() {
   		console.log("default task");
 	});
 
-	gulp.task(‘html’, function() {
-		console.log(“html task”);
+	gulp.task('html', function() {
+		console.log("html task");
 	});
 
-	gulp.task(‘styles’, function() {
-		console.log(“styles task”);
+	gulp.task('styles', function() {
+		console.log("styles task");
 	});
 ```
 
